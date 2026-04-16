@@ -333,3 +333,22 @@ code {
     display: inline-block; /* Essential for margins to behave correctly when wrapping */
     vertical-align: middle;
 }
+
+/* Container for the Title + Date line */
+/* Resets the default H4 behavior so the Flexbox can work */
+h4.paper-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-bottom: 0 !important; /* Forces the gap to disappear */
+    font-weight: normal; 
+}
+
+/* 2. Tighten the space for the author div that follows the header */
+h4.paper-header + div {
+    margin-top: 2px !important; /* This creates a tiny, controlled 2px gap */
+    line-height: 1.4;
+	margin-bottom: 4px !important; /* Restores gap between Authors and Abstract */
+}
