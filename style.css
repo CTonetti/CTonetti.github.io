@@ -1,386 +1,330 @@
-﻿
-/*
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-*/
+﻿/* Modernized CSS for Christopher Tonetti */
+
+:root {
+    --primary-bg: #F7F7F7;
+    --content-bg: #FFFFFF;
+    --text-color: #333333;
+    --heading-color: #000000;
+    --nav-bg: #000000;
+    --accent-color: #BC1B32; /* Stanford Red-ish hover color */
+    --border-color: #E2E2E2;
+}
 
 body {
-	margin: 0;
-	padding: 0;
-	background: #F7F7F7 url(images/img01.jpg) repeat-x left top;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	color: #787878;
-}
-
-h1, h2, h3 {
-	margin: 0;
-	padding: 0;
-	font-weight: normal;
-	color: #000000;
-}
-
-h1 {
-	font-size: 2em;
-}
-
-h2 {
-	font-size: 2.4em;
-}
-
-h3 {
-	font-size: 1.6em;
-}
-
-h4.title{
-	margin-bottom: 5px;
-}
-
-p, ul, ol {
-	margin-top: 0;
-	line-height: 180%;
-}
-
-ul, ol {
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-bg);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-color);
+    /* Sticky Footer Setup */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 a {
-	color: #000000;
-	text-decoration: underline;
+    color: var(--heading-color);
+    text-decoration: underline;
 }
 
 a:hover {
-	color: #BC1B32;
+    color: var(--accent-color);
 }
 
-#wrapper {
-	width: 960px;
-	margin: 0 auto;
-	padding: 0;
+h1, h2, h3, h4 {
+    margin: 0 0 10px 0;
+    font-weight: normal;
+    color: var(--heading-color);
+    line-height: 1.2;
+}
+
+/* Layout Containers */
+.container {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 0 15px;
+    /* Container grows to fill body space */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Header */
-
-#header {
-	width: 940px;
-	height: 102px;
-	margin: 0 auto;
+header {
+    padding: 30px 0;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap; 
+    gap: 15px; 
 }
 
-/* Logo */
-
-#logo {
-	float: left;
-	margin: 0;
-	padding-top: 30px;
-	color: #000000;
+header h1 {
+    font-size: 3.6em; 
+    letter-spacing: -1px;
+    margin: 0;
 }
 
-#logo h1, #logo p {
-	margin: 0;
-	padding: 0;
+header h1 a {
+    text-decoration: none;
 }
 
-#logo h1 {
-	float: left;
-	letter-spacing: -1px;
-	/* text-transform: lowercase; */
-	font-size: 3.8em;
+header p {
+    font-size: 1.05em; 
+    font-family: Georgia, "Times New Roman", Times, serif; 
+    font-style: italic;
+    margin: 0;
 }
 
-#logo p {
-	float: left;
-	margin: 0;
-	padding: 26px 0 0 10px;
-	font: normal 14px Georgia, "Times New Roman", Times, serif;
-	font-style: italic;
-} 
-
-#logo a {
-	border: none;
-	background: none;
-	text-decoration: none;
-	color: #000000;
+header p a {
+    text-decoration: none; 
+    color: #555; 
 }
 
-/* Search */
-
-#search {
-	float: right;
-	width: 280px;
-	height: 60px;
-	padding: 20px 0px 0px 0px;
-	background: #E2E2E2;
-	border-bottom: 4px solid #FFFFFF;
+header p a:hover {
+    color: var(--accent-color); 
 }
 
-#search form {
-	height: 41px;
-	margin: 0;
-	padding: 10px 0 0 20px;
+/* Navigation */
+nav {
+    background-color: var(--nav-bg);
+    display: flex;
+    flex-wrap: wrap;
 }
 
-#search fieldset {
-	margin: 0;
-	padding: 0;
-	border: none;
+nav a {
+    flex: 1; 
+    text-align: center;
+    padding: 10px 15px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    border-right: 1px solid #333;
 }
 
-#search-text {
-	width: 170px;
-	padding: 6px 5px 2px 5px;
-	border: 1px solid #DEDEDE;
-	background: #FFFFFF;
-	text-transform: lowercase;
-	font: normal 11px Arial, Helvetica, sans-serif;
-	color: #5D781D;
+nav a:hover, nav a.active {
+    background-color: var(--accent-color);
+    color: #FFFFFF; /* Keeps text readable on hover */
 }
 
-#search-submit {
-	width: 50px;
-	height: 22px;
-	border: none;
-	background: #B9B9B9;
-	color: #000000;
+/* Main Content Area */
+/* --- RESPONSIVE LAYOUT LOGIC --- */
+
+/* 1. Default Mobile View: Stacked */
+.layout-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-/* Menu */
-
-#menu {
-	width: 940px;
-	height: 36px;
-	margin: 0 auto;
-	padding: 0;
-	background: #000000;
+/* 2. On Mobile only: Move the sidebar/image to the top */
+@media (max-width: 767px) {
+    .layout-grid aside.profile {
+        order: -1; 
+        margin: 0 auto; /* Centers the headshot on phones */
+        max-width: 300px; /* Keeps the headshot from being too huge on mobile */
+    }
 }
 
-#menu ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	line-height: normal;
+/* 3. Desktop View: Side-by-Side */
+@media (min-width: 768px) {
+    .layout-grid {
+        flex-direction: row;
+        gap: 0;
+    }
+
+    /* Resets the order so the image goes back to the right side */
+    .layout-grid aside {
+        order: 1; 
+    }
 }
 
-#menu li {
-	float: left;
+main {
+    flex: 1; 
 }
 
-#menu a {
-	display: block;
-	/*Adjust width here when changing number of menu items (#menu.width/numitems)*/
-	width: 235px;
-	height: 28px;
-	background: #000000;
-	padding-top: 8px;
-	border-right: 1px solid #FFFFFF;
-	text-decoration: none;
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 13px;
-	font-weight: bold;
-	color: #FFFFFF;
-	border: none;
+aside {
+    background: var(--content-bg);
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-#menu a:hover, #menu .current_page_item a {
-	background: #BC1B32;
-	/*background: #1B83BB;*/
-	text-decoration: none;
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-#menu .current_page_item a {
-	background: #BC1B32;
-	/*background: #1B83BB;*/
-	padding-left: 0;
+/* Sidebar Specifics */
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+aside li {
+    margin-bottom: 15px;
 }
 
-/* Page */
-
-#page {
-	width: 940px;
-	margin: 0 auto;
-	padding: 0;
+/* Native Abstract Toggles (Research Page) */
+details {
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
-
-#page-bgtop {
-	padding: 20px px;
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #666;
 }
-
-#page-bgbtm {
+summary:hover {
+    color: var(--accent-color);
 }
-
-/* Content */
-
-#content {
-	float: left;
-	width: 620px;
-	padding: 0;
-}
-
-.post {
-	margin-bottom: 15px;
-	border-bottom: 1px solid #E2E2E2;
-}
-
-.post-bgtop {
-}
-
-.post-bgbtm {
-}
-
-.post .title {
-	color: #000000;
-}
-
-.post .title a {
-	border: none;
-}
-
-.post .meta {
-	width: 400px;
-	padding: 5px 20px 5px 10px;
-	background: #676767;
-	text-align: left;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	font-style: italic;
-	color: #FFFFFF;
-}
-
-.post .meta a {
-	color: #FFFFFF;
-}
-
-.post .entry {
-	padding: 0px 0px 20px 0px;
-	padding-bottom: 20px;
-	text-align: justify;
-}
-
-.links {
-	padding-top: 20px;
-	font-size: 12px;
-	font-weight: bold;
-}
-
-a.abstract-link{
-	cursor: pointer;
-	color: #888;
-	text-decoration: none;
-}
-a.abstract-link:hover{
-	color: #444;
-}
-
-/* Sidebar */
-
-#sidebar {
-	float: right;
-	width: 233px;
-	padding: 0px;
-	color: #787878;
-	background: #FFFFFF;
-}
-
-#sidebar ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-#sidebar li {
-	margin: 0;
-	padding: 0;
-	border-left: 1px solid #E2E2E2;
-}
-
-#sidebar li ul {
-	margin: 0px 0px;
-	padding-bottom: 30px;
-}
-
-#sidebar li li {
-	line-height: 35px;
-	border-bottom: 1px dashed #D1D1D1;
-	margin: 0px 30px;
-	border-left: none;
-}
-
-#sidebar li li span {
-	display: block;
-	margin-top: -20px;
-	padding: 0;
-	font-size: 11px;
-	font-style: italic;
-}
-
-#sidebar h2 {
-	height: 38px;
-	padding-left: 30px;
-	letter-spacing: -.5px;
-	font-size: 1.8em;
-	color: #000000;
-}
-
-#sidebar p {
-	margin: 0 0px;
-	padding: 0px 30px 20px 30px;
-	text-align: justify;
-}
-
-#sidebar a {
-	border: none;
-	color: #8A8A8A;
-}
-
-#sidebar a:hover {
-	text-decoration: underline;
-	color: #BC1B32;
-}
-
-/* Calendar */
-
-#calendar {
-}
-
-#calendar_wrap {
-	padding: 20px;
-}
-
-#calendar table {
-	width: 100%;
-}
-
-#calendar tbody td {
-	text-align: center;
-}
-
-#calendar #next {
-	text-align: right;
+details p {
+    margin-top: 3px;
+    padding-left: 15px;
+    border-left: 3px solid var(--border-color);
+    text-align: justify;
 }
 
 /* Footer */
-
-#footer {
-	height: 40px;
-	margin: 0 auto;
-	padding: 0px 0 10px 0;
-	background: #ECECEC;
-	border-top: 1px solid #DEDEDE;
-	font-family: Arial, Helvetica, sans-serif;
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.75em;
+    color: #bbb;
+    border-top: 1px solid var(--border-color);
+    margin-top: auto; /* Pushes the footer to the bottom of the screen */
 }
 
-#footer p {
-	margin: 0;
-	padding-top: 20px;
-	line-height: normal;
-	font-size: 9px;
-	text-transform: uppercase;
-	text-align: center;
-	color: #A0A0A0;
+/* --- RESPONSIVE BREAKPOINT FOR DESKTOP --- */
+@media (min-width: 768px) {
+    .layout-grid {
+        flex-direction: row; /* Switch to side-by-side on larger screens */
+        gap: 0; /* Removes the white space so the image and contact box touch */
+        align-items: stretch; /* Forces the contact box to be exactly as tall as the image */
+    }
+    
+    aside {
+        flex: 0 0 25%; /* Takes up exactly 30% of the horizontal space */
+        max-width: 280px; /* Caps the width so it doesn't get too wide on huge screens */
+    }
 }
 
-#footer a {
-	color: #8A8A8A;
+/* --- RESEARCH PAGE STYLES --- */
+
+/* Adds the light horizontal line above each section with spacing */
+.post {
+    border-top: 1px solid var(--border-color);
+    padding-top: 30px;
+    margin-top: 30px;
+}
+
+/* Removes the line and spacing above the very first section (Research Statement) */
+.post:first-of-type {
+    border-top: none;
+    padding-top: 30px;
+    margin-top: 0;
+}
+
+/* Makes all section headers (like Journal Publications) larger and bold */
+.post h3 {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Indents the research statement paragraph */
+.statement-text {
+    margin-left: 20px; 
+}
+
+/* --- RESEARCH PAGE LIST SPACING --- */
+
+/* Gives the citation text more room to breathe without double spacing */
+.post h4 {
+    line-height: 1.5; 
+    margin-bottom: 2px; /* Shrinks the gap below the citation */
+}
+
+/* Removes the top margin so the summary hugs the citation tightly */
+.post details {
+    margin-top: 0; 
+}
+
+/* Adds a bit more space between the individual papers so they are clearly separated */
+.post ul li {
+    margin-bottom: 15px;
+}
+
+/* Makes the paper titles slightly larger than the author and journal text */
+.post h4 strong {
+    font-size: 1.1em; /* Increases the size by 15% relative to the rest of the citation */
+    display: inline-block; /* Ensures the larger text doesn't mess with the line-height below it */
+    margin-bottom: 3px; /* Adds a tiny bit of breathing room between the title and the authors */
+}
+
+/* Removes the circular bullet points from the lists but keeps a slight indent */
+.post ul {
+    list-style-type: none;
+    padding-left: 20px; /* Changed from 0 to 20px to create the indent */
+}
+
+/* Creates a dynamic grid for the updates list */
+.updates-list {
+    display: grid;
+    grid-template-columns: max-content 1fr; /* Col 1 matches the longest date, Col 2 fills the rest */
+    row-gap: 15px; /* Vertical space between the papers */
+    column-gap: 10px; /* Horizontal space between the date and the paper title */
+    list-style: none; /* Removes the bullet points */
+    padding-left: 20px; /* Keeps your nice indent */
+}
+
+/* Makes the <li> invisible to the grid so its children can snap into the columns */
+.updates-list li {
+    display: contents;
+}
+
+/* Ensures the date never breaks onto two lines */
+.date-label {
+    white-space: nowrap;
+}
+
+/* Styling for the specific Miscellany profile area */
+/* This rule now lives OUTSIDE the media queries so it works on all screens */
+aside.profile {
+    background: transparent !important;
+    padding: 0 !important;
+    align-self: flex-start;
+}
+
+aside.profile img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Now, keep the width-specific stuff inside the desktop media query */
+@media (min-width: 768px) {
+    aside.profile {
+        flex: 0 0 350px;
+        max-width: 350px;
+    }
+}
+
+/* And keep the centering stuff inside the mobile media query */
+@media (max-width: 767px) {
+    aside.profile {
+        order: -1; 
+        margin: 0 auto 20px auto; /* Centered with a little gap below it */
+        max-width: 300px;
+    }
+}
+
+code {
+    white-space: nowrap;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.9em;
 }
