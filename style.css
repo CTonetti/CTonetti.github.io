@@ -185,7 +185,8 @@ details p {
     margin-top: 3px;
     padding-left: 15px;
     border-left: 3px solid var(--border-color);
-    text-align: justify;
+	text-align: left !important;
+    text-justify: none !important;
 }
 
 /* Footer */
