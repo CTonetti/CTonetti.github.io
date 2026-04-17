@@ -286,7 +286,7 @@ footer {
 /* Creates a dynamic grid for the updates list */
 .updates-list {
     display: grid;
-    grid-template-columns: max-content 1fr; /* Col 1 matches the longest date, Col 2 fills the rest */
+    grid-template-columns: max-content minmax(0, 1fr);
     row-gap: 15px; /* Vertical space between the papers */
     column-gap: 10px; /* Horizontal space between the date and the paper title */
     list-style: none; /* Removes the bullet points */
