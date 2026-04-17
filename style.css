@@ -468,3 +468,7 @@ h4.paper-header + div {
     padding-left: 0 !important;
     margin-left: 0 !important;
 }
+
+.updates-list li div > strong a {
+    text-decoration: underline !important;
+}
