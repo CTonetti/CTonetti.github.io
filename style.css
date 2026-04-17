@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-    --primary-bg: #F7F7F7;
-    --content-bg: #FFFFFF;
-    --text-color: #333333;
-    --heading-color: #000000;
+    --primary-bg: #1A1A1A;    /* Dark charcoal background */
+    --content-bg: #242424;    /* Slightly lighter dark for aside/cards */
+    --text-color: #CCCCCC;    
+    --heading-color: #FFFFFF; 
     --nav-bg: #000000;
-    --accent-color: #BC1B32; /* Stanford Red-ish hover color */
-    --border-color: #E2E2E2;
+    --accent-color: #E52D42;  /* A slightly brighter red for visibility on dark */
+    --border-color: #333333;  /* Subtle dark border */
 }
 
 body {
@@ -26,7 +26,7 @@ body {
 }
 
 a {
-    color: var(--heading-color);
+	color: var(--heading-color);
     text-decoration: underline;
     text-underline-offset: 2px; /* Makes links look a bit cleaner */
 }
@@ -70,16 +70,22 @@ header {
     align-items: baseline;
     flex-wrap: wrap; 
     gap: 15px; 
+    color: var(--heading-color);
+
 }
 
 header h1 {
     font-size: 3.6em; 
     letter-spacing: -1px;
     margin: 0;
+    color: var(--heading-color);
+
 }
 
 header h1 a {
     text-decoration: none;
+	color: var(--heading-color) !important;
+
 }
 
 header p {
@@ -88,16 +94,26 @@ header p {
     font-style: italic;
     font-weight: 400;
     margin: 0;
+    color: var(--heading-color);
 }
 
+
+header p a {
+    text-decoration: none; 
+	color: var(--heading-color) !important;
+}
+
+/*
 header p a {
     text-decoration: none; 
     color: #555; 
 }
+*/
 
 header p a:hover {
     color: var(--accent-color); 
 }
+
 
 /* Navigation */
 nav {
@@ -110,7 +126,7 @@ nav a {
     flex: 1; 
     text-align: center;
     padding: 10px 15px;
-    color: #FFFFFF;
+	color: var(--heading-color);
     text-decoration: none;
     font-weight: 600;
     border-right: 1px solid #333;
@@ -120,7 +136,7 @@ nav a {
 
 nav a:hover, nav a.active {
     background-color: var(--accent-color);
-    color: #FFFFFF; /* Keeps text readable on hover */
+	color: var(--heading-color);
 }
 
 /* Main Content Area */
@@ -189,7 +205,7 @@ details {
 summary {
     cursor: poRoboto;
     font-weight: 600;
-    color: #555;
+	color: var(--text-color);
     font-family: 'Roboto', sans-serif;
 }
 summary:hover {
@@ -202,8 +218,7 @@ details p {
     text-align: left !important;
     text-justify: none !important;
     font-size: 0.95em;
-    color: #444;
-}
+	color: var(--text-color) !important;}
 
 /* Footer */
 footer {
@@ -297,6 +312,7 @@ footer {
     column-gap: 10px; /* Horizontal space between the date and the paper title */
     list-style: none; /* Removes the bullet points */
     padding-left: 20px; /* Keeps nice indent */
+	align-items: baseline;
 }
 
 /* Makes the <li> invisible to the grid so its children can snap into the columns */
@@ -308,8 +324,8 @@ footer {
 .date-label {
     white-space: nowrap;
     font-weight: 600;
-    color: #555;
-}
+	color: var(--text-color);
+	}
 
 /* Styling for the specific Miscellany profile area */
 /* This rule now lives OUTSIDE the media queries so it works on all screens */
@@ -322,8 +338,15 @@ aside.profile {
 aside.profile img {
     width: 100%;
     border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+/*
+aside.profile img {
+    width: 100%;
+    border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
+*/
 
 /* Now, keep the width-specific stuff inside the desktop media query */
 @media (min-width: 768px) {
@@ -354,6 +377,18 @@ code {
     display: inline-block; /* Essential for margins to behave correctly when wrapping */
     vertical-align: middle;
     background: transparent;
+	color: var(--text-color);
+
+}
+
+code a {
+    color: var(--text-color) !important;
+    text-decoration: none;
+}
+
+code a:hover {
+    color: var(--accent-color) !important;
+    text-decoration: underline;
 }
 
 /* Container for the Title + Date line */
@@ -367,6 +402,8 @@ h4.paper-header {
     margin-top: 0;
     margin-bottom: 0 !important; /* Forces the gap to disappear */
     font-weight: normal; 
+	color: var(--heading-color);
+
 }
 
 /* The date styling inside the flexbox */
@@ -374,6 +411,7 @@ h4.paper-header {
     font-size: 0.95em;
     white-space: nowrap;
     font-family: 'Roboto', sans-serif;
+	color: var(--text-color);
 }
 
 /* 2. Tighten the space for the author div that follows the header */
@@ -445,6 +483,16 @@ h4.paper-header + div {
     margin-top: 0 !important;    /* Prevents top margins from stacking */
 }
 
+.paper-metadata a {
+    color: var(--text-color) !important;
+    text-decoration: none; /* Keeps the clean, non-underlined look you prefer for metadata */
+}
+
+.paper-metadata a:hover {
+    color: var(--accent-color) !important;
+    text-decoration: underline;
+}
+
 /* 2. Apply a single, consistent gap between EVERY line */
 .paper-metadata {
     margin-bottom: 4px !important; 
@@ -461,6 +509,8 @@ h4.paper-header + div {
     margin-right: 8px;
     padding-top: 0;
     padding-bottom: 0;
+	color: var(--text-color);
+
 }
 
 /* 4. Keep your first-child alignment fix */
