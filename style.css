@@ -406,7 +406,7 @@ h4.paper-header + div {
     }
     
     .paper-date {
-        margin-left: 0;          /* Removes the right-alignment push */
+        margin-left: 20px;          /* Removes the right-alignment push */
         margin-top: 2px;         /* Adds a tiny gap below the paper title */
     }
 	
