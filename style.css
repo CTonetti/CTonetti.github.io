@@ -377,9 +377,14 @@ h4.paper-header + div {
 }
 
 /* Keeps (w/ Author Name) together on one line */
-.author-no-wrap {
+/* Container for the authors (stays inline on desktop) */
+.author-block {
+    display: inline; 
+}
+
+/* Protects individual names from splitting across lines */
+.author-name {
     white-space: nowrap;
-    display: inline-block; /* Helps the browser treat it as one solid unit */
 }
 
 /* --- MOBILE PAPER HEADER BEHAVIOR --- */
@@ -394,8 +399,9 @@ h4.paper-header + div {
         margin-top: 2px;         /* Adds a tiny gap below the paper title */
     }
 	
-	.author-no-wrap {
-        display: block;  /* Overrides the default inline-block */
-        margin-top: 2px; /* Adds a tiny gap below the title */
+    /* Home Page: Forces the whole author block to start on its own line */
+    .author-block {
+        display: block;  
+        margin-top: 2px; 
     }
 }
