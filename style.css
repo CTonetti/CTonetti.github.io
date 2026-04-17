@@ -219,7 +219,7 @@ footer {
     }
     
     aside {
-        flex: 0 0 25%; /* Takes up exactly 30% of the horizontal space */
+        flex: 0 0 25%; /* Takes up exactly 25% of the horizontal space */
         max-width: 280px; /* Caps the width so it doesn't get too wide on huge screens */
     }
 }
@@ -290,7 +290,7 @@ footer {
     row-gap: 15px; /* Vertical space between the papers */
     column-gap: 10px; /* Horizontal space between the date and the paper title */
     list-style: none; /* Removes the bullet points */
-    padding-left: 20px; /* Keeps your nice indent */
+    padding-left: 20px; /* Keeps nice indent */
 }
 
 /* Makes the <li> invisible to the grid so its children can snap into the columns */
@@ -371,7 +371,7 @@ h4.paper-header {
 
 /* 2. Tighten the space for the author div that follows the header */
 h4.paper-header + div {
-    margin-top: 2px !important; /* This creates a tiny, controlled 2px gap */
+    margin-top: 2px !important; /* This creates a tiny 2px gap */
     line-height: 1.4;
     margin-bottom: 4px !important; /* Restores gap between Authors and Abstract */
 }
