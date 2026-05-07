@@ -156,6 +156,9 @@ nav a:hover, nav a.active {
         margin: 0 auto; /* Centers the headshot on phones */
         max-width: 300px; /* Keeps the headshot from being too huge on mobile */
     }
+	.author-block + br {
+        display: none;
+    }
 }
 
 /* 3. Desktop View: Side-by-Side */
@@ -521,4 +524,8 @@ h4.paper-header + div {
 
 .updates-list li div > strong a {
     text-decoration: underline !important;
+}
+/* Reduces the font size of author names and journal info */
+.author-block {
+    font-size: 0.99em; 
 }
