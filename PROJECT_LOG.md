@@ -3,6 +3,15 @@
 Newest entries go on top.
 
 ---
+## Session log — 2026-11-14 (cont. 1) — Full month names for dormant working papers
+
+- `research.html`: spelled out the abbreviated dates in the Dormant Working Papers section ("Dec 2014" → "December 2014", "Sep 2014" → "September 2014", "Dec 2019" → "December 2019"), so every `paper-date` on the page now uses the full month name.
+- Decided to leave the dormant papers' PDFs untouched and not to check them for the abstract typos fixed on the website in the previous entry.
+- Located the flagged hyphenation items by section: "slowly-improving" (Past Automation) and "1 percent"/"one percent" (Weak-Link Asymmetry) are in Research in Progress; "likelihood based", "real world", "time varying" (Nakata–Tonetti, JAE 2015) and "fast growing", "catchup" (Benhabib–Perla–Tonetti, JEG 2014) are in published papers; "high dimensional" is in the dormant Smith–Tonetti paper. All left unchanged for now.
+
+**Where to start next:** Decide whether to apply any of the hyphenation fixes, starting with the two in-progress abstracts.
+
+---
 ## Session log — 2026-11-14 — Typo and consistency pass on index.html and research.html
 
 - Proofread `index.html` and `research.html` after the author's own fix of two missing spaces in the Automation abstract ("perform task-based", "rapidly improving").
